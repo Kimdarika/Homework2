@@ -11,10 +11,6 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -28,9 +24,16 @@ class CategoryController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    $category = Category::create($request->all());
+
+    return response()->json($category);
+}
+
+public function index()
+{
+    return Category::all();
+}
 
     /**
      * Display the specified resource.
